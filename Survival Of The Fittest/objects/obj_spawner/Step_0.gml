@@ -1,6 +1,12 @@
 spawn_timer++;
 
-if (spawn_timer >= spawn_rate) {
+// Spawn faster based on player's evolution stage
+var _current_rate = spawn_rate;
+if (instance_exists(obj_player)) {
+    _current_rate = max(30, spawn_rate - (obj_player.evolution_stage * 20));
+}
+
+if (spawn_timer >= _current_rate) {
     spawn_timer = 0;
     
     // Pick a random edge of the room to spawn from
@@ -8,10 +14,10 @@ if (spawn_timer >= spawn_rate) {
     var _sx, _sy;
     
     switch (_side) {
-        case 0: _sx = irandom(room_width); _sy = 0; break;           // top
-        case 1: _sx = irandom(room_width); _sy = room_height; break; // bottom
-        case 2: _sx = 0; _sy = irandom(room_height); break;          // left
-        case 3: _sx = room_width; _sy = irandom(room_height); break; // right
+        case 0: _sx = irandom(room_width); _sy = 0; break;
+        case 1: _sx = irandom(room_width); _sy = room_height; break;
+        case 2: _sx = 0; _sy = irandom(room_height); break;
+        case 3: _sx = room_width; _sy = irandom(room_height); break;
     }
     
     instance_create_layer(_sx, _sy, "Instances", obj_enemy);
