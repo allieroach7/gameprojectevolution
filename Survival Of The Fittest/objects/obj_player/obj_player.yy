@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_playerPlaceholder",
-    "path":"sprites/spr_playerPlaceholder/spr_playerPlaceholder.yy",
+    "name":"spr_eukaryote",
+    "path":"sprites/spr_eukaryote/spr_eukaryote.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -26,27 +26,6 @@ y += _vmove * spd;
 x = clamp(x, 0, room_width);
 y = clamp(y, 0, room_height);
 
-/*
-// --- SHOOTING (Q key) ---
-if (shoot_cooldown > 0) shoot_cooldown--;
-
-if (keyboard_check_pressed(ord("Q")) && shoot_cooldown <= 0) {
-    var _bullet = instance_create_layer(x, y, "Instances", obj_playerBullet);
-    
-    // Shoot in the direction player is facing
-    if (_hmove != 0 || _vmove != 0) {
-        _bullet.direction = point_direction(0, 0, _hmove, _vmove);
-    } else {
-        _bullet.direction = 0; // default: shoot right
-    }
-    
-    _bullet.speed = 6;
-    shoot_cooldown = shoot_delay;
-}
-*/
-
-
-
 // --- SHOOTING (mouse click or Q key) ---
 if (shoot_cooldown > 0) shoot_cooldown--;
 
@@ -71,7 +50,33 @@ if (dna_points >= dna_to_evolve) {
     // Win condition — reached human form
     if (evolution_stage >= 5) {
         room_goto(rm_win);
+    }
 }
+
+// --- SPRITE UPDATE BASED ON EVOLUTION STAGE ---
+switch (evolution_stage) {
+    case 1:
+        sprite_index = spr_eukaryote;
+        break;
+    case 2:
+        sprite_index = spr_fish;
+        break;
+    case 3:
+        sprite_index = spr_fishwitlegs;
+        break;
+    case 4:
+        sprite_index = spr_monkey;
+        break;
+    // Add more cases if you have additional stages
+    default:
+        // If evolution_stage is outside expected range, keep current sprite or set default
+        if (evolution_stage < 1) {
+            sprite_index = spr_eukaryote;
+        } else if (evolution_stage > 4) {
+            // For stage 5+ (win condition), you might want to keep the monkey sprite
+            sprite_index = spr_monkey;
+        }
+        break;
 }
 
 // --- CHEAT CODES (for testing) ---
@@ -86,7 +91,6 @@ if (keyboard_check_pressed(ord("2"))) {
     dna_points += 10;
 }
 
-// Press 3 — Skip to next evolution stage
 // Press 3 — Skip to next evolution stage
 if (keyboard_check_pressed(ord("3"))) {
     evolution_stage++;
