@@ -1,9 +1,13 @@
 // Player variables
-spd = 3; // movement speed
+spd = 3;
 hp = 100;
 max_hp = 100;
 dna_points = 0;
-dna_to_evolve = 10; // DNA needed to evolve
-evolution_stage = 0; // 0 = micro, 1 = fish, 2 = amphibian, etc.
+dna_to_evolve = 10;
+evolution_stage = 0;
 shoot_cooldown = 0;
-shoot_delay = 15; // frames between shots
+shoot_delay = 15;
+can_evolve = false;
+sprite_index = spr_eukaryote;
+enemies_killed = 0;
+global.final_kills = 0;

@@ -1,3 +1,10 @@
+
+// Hide player in non-game rooms
+if (room != rm_game && room != rm_game_land) {
+    instance_destroy();
+    exit;
+}
+
 // --- DEATH CHECK ---
 if (hp <= 0) {
    
@@ -28,16 +35,27 @@ y = clamp(y, 0, room_height);
 
 // --- SHOOTING (mouse click or Q key) ---
 if (shoot_cooldown > 0) shoot_cooldown--;
-
 if ((mouse_check_button_pressed(mb_left) || keyboard_check_pressed(ord("Q"))) && shoot_cooldown <= 0) {
     var _bullet = instance_create_layer(x, y, "Instances", obj_playerBullet);
     _bullet.direction = point_direction(x, y, mouse_x, mouse_y);
     _bullet.speed = 6;
     shoot_cooldown = shoot_delay;
+    
+    // Change projectile sprite based on level
+    if (room == rm_game) {
+        _bullet.sprite_index = spr_bubble;
+    } else {
+        _bullet.sprite_index = spr_leaf;
+    }
 }
 
 // --- EVOLUTION CHECK ---
 if (dna_points >= dna_to_evolve) {
+    can_evolve = true;
+}
+
+if (can_evolve && keyboard_check_pressed(ord("E"))) {
+    can_evolve = false;
     dna_points = 0;
     evolution_stage++;
     
@@ -47,37 +65,27 @@ if (dna_points >= dna_to_evolve) {
     hp = max_hp;
     shoot_delay = max(5, shoot_delay - 2);
     
+    // Change sprite based on evolution stage
+  switch (evolution_stage) {
+    case 1: sprite_index = spr_fish; break;
+    case 2: sprite_index = spr_fishLegs; break;
+    case 3: sprite_index = spr_wolf; break;
+    case 4: sprite_index = spr_monkey; break;
+}
+    
+    // Transition to land level at stage 3
+    if (evolution_stage == 3 && room == rm_game) {
+        room_goto(rm_game_land);
+    }
+    
     // Win condition — reached human form
     if (evolution_stage >= 5) {
-        room_goto(rm_win);
-    }
+    global.final_kills = enemies_killed;
+    room_goto(rm_win);
+}
 }
 
-// --- SPRITE UPDATE BASED ON EVOLUTION STAGE ---
-switch (evolution_stage) {
-    case 1:
-        sprite_index = spr_eukaryote;
-        break;
-    case 2:
-        sprite_index = spr_fish;
-        break;
-    case 3:
-        sprite_index = spr_fishwitlegs;
-        break;
-    case 4:
-        sprite_index = spr_monkey;
-        break;
-    // Add more cases if you have additional stages
-    default:
-        // If evolution_stage is outside expected range, keep current sprite or set default
-        if (evolution_stage < 1) {
-            sprite_index = spr_eukaryote;
-        } else if (evolution_stage > 4) {
-            // For stage 5+ (win condition), you might want to keep the monkey sprite
-            sprite_index = spr_monkey;
-        }
-        break;
-}
+
 
 // --- CHEAT CODES (for testing) ---
 
@@ -99,13 +107,27 @@ if (keyboard_check_pressed(ord("3"))) {
     hp = max_hp;
     shoot_delay = max(5, shoot_delay - 2);
     
-    if (evolution_stage >= 5) {
-        room_goto(rm_win);
+ switch (evolution_stage) {
+    case 1: sprite_index = spr_fish; break;
+    case 2: sprite_index = spr_fishLegs; break;
+    case 3: sprite_index = spr_wolf; break;
+    case 4: sprite_index = spr_monkey; break;
+}
+    
+    if (evolution_stage == 3 && room == rm_game) {
+        room_goto(rm_game_land);
     }
+    
+    if (evolution_stage >= 5) {
+    global.final_kills = enemies_killed;
+    room_goto(rm_win);
+}
 }
 
 // Press 4 — Instant win
+// Press 4 — Instant win
 if (keyboard_check_pressed(ord("4"))) {
+    global.final_kills = enemies_killed;
     room_goto(rm_win);
 }
 

@@ -20,5 +20,10 @@ if (spawn_timer >= _current_rate) {
         case 3: _sx = room_width; _sy = irandom(room_height); break;
     }
     
-    instance_create_layer(_sx, _sy, "Instances", obj_enemy);
+    // Spawn correct enemy type based on level
+    if (room == rm_game) {
+        instance_create_layer(_sx, _sy, "Instances", obj_mosasaurus);
+    } else if (room == rm_game_land) {
+        instance_create_layer(_sx, _sy, "Instances", obj_sabretooth);
+    }
 }
