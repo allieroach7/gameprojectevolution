@@ -69,13 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-<<<<<<< HEAD:Survival Of The Fittest/sprites/spr_fishLegs/spr_fishLegs.yy
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3503c888-34fe-403b-a2b9-52ec69492a34","path":"sprites/spr_fishLegs/spr_fishLegs.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e1552c2c-e1c7-400f-add7-0e0bc636916a","path":"sprites/spr_fishLegs/spr_fishLegs.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"74b5749c-9e5e-4d12-a6b7-311b8a03b582","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-=======
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e1552c2c-e1c7-400f-add7-0e0bc636916a","path":"sprites/spr_fishwitlegs/spr_fishwitlegs.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"75f78b79-ca96-4479-bd34-af8cdcd122e4","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
->>>>>>> eaae923ccdf9f1a1d7de031bd7ac4f2adfafa34b:Survival Of The Fittest/sprites/spr_fishwitlegs/spr_fishwitlegs.yy
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
