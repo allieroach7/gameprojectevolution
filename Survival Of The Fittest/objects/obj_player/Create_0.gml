@@ -11,3 +11,6 @@ can_evolve = false;
 sprite_index = spr_eukaryote;
 enemies_killed = 0;
 global.final_kills = 0;
+is_dead = false;
+u_time = shader_get_uniform(shd_underwater, "u_time");
+shader_time = 0;

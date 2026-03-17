@@ -6,9 +6,18 @@ if (room != rm_game && room != rm_game_land) {
 }
 
 // --- DEATH CHECK ---
-if (hp <= 0) {
-   
-   room_goto(rm_gameover);
+if (hp <= 0 && !is_dead) {
+    is_dead = true;
+    if (instance_exists(obj_particle_manager)) {
+        part_particles_create(obj_particle_manager.player_death_ps, x, y, obj_particle_manager.player_death_pt, 30);
+    }
+    alarm[0] = 60;
+    visible = false;
+    spd = 0;
+}
+
+if (is_dead) {
+    exit;
 }
 
 // --- PLAYER MOVEMENT ---
@@ -26,12 +35,38 @@ if (_hmove != 0 && _vmove != 0) {
     _vmove *= 0.707;
 }
 
-x += _hmove * spd;
-y += _vmove * spd;
+// Horizontal movement with wall collision
+var _new_x = x + (_hmove * spd);
+if (!place_meeting(_new_x, y, obj_wall)) {
+    x = _new_x;
+}
+
+// Vertical movement with wall collision
+var _new_y = y + (_vmove * spd);
+if (!place_meeting(x, _new_y, obj_wall)) {
+    y = _new_y;
+}
 
 // Keep player inside the room
 x = clamp(x, 0, room_width);
 y = clamp(y, 0, room_height);
+
+
+// --- CAMERA FOLLOW ---
+if (view_enabled) {
+    var _cam = view_camera[0];
+    var _cx = x - (camera_get_view_width(_cam) / 2);
+    var _cy = y - (camera_get_view_height(_cam) / 2);
+    
+    // Clamp camera to room bounds
+    _cx = clamp(_cx, 0, room_width - camera_get_view_width(_cam));
+    _cy = clamp(_cy, 0, room_height - camera_get_view_height(_cam));
+    
+    camera_set_view_pos(_cam, _cx, _cy);
+}
+
+// Shader timer
+shader_time += 0.016;
 
 // --- SHOOTING (mouse click or Q key) ---
 if (shoot_cooldown > 0) shoot_cooldown--;
@@ -58,6 +93,11 @@ if (can_evolve && keyboard_check_pressed(ord("E"))) {
     can_evolve = false;
     dna_points = 0;
     evolution_stage++;
+	
+	// Evolution particles
+if (instance_exists(obj_particle_manager)) {
+    part_particles_create(obj_particle_manager.evolve_ps, x, y, obj_particle_manager.evolve_pt, 30);
+}
     
     // Power up with each evolution
     spd += 0.5;

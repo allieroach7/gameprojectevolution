@@ -1,3 +1,4 @@
+event_inherited();
 hp = 80;
 spd = 2.5;
 erratic_timer = 0;

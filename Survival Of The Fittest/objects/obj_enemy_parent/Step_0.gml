@@ -1,4 +1,4 @@
-// Death check from parent
+// Destroy enemy when HP hits 0
 if (hp <= 0) {
     if (instance_exists(obj_player)) {
         obj_player.enemies_killed++;
@@ -12,18 +12,9 @@ if (hp <= 0) {
     instance_destroy();
 }
 
-// Erratic movement override
-erratic_timer++;
-
+// Default movement — chase player with wall collision
 if (instance_exists(obj_player)) {
     var _dir = point_direction(x, y, obj_player.x, obj_player.y);
-    
-    if (erratic_timer >= 30) {
-        erratic_dir = irandom_range(-45, 45);
-        erratic_timer = 0;
-    }
-    
-    _dir += erratic_dir;
     var _new_x = x + lengthdir_x(spd, _dir);
     var _new_y = y + lengthdir_y(spd, _dir);
     
