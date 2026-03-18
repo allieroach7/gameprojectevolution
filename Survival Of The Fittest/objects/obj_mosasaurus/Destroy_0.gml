@@ -1,1 +1,1 @@
-audio_play_sound(snd_explosion,1,false);
+audio_play_sound(snd_explosion,2,false);

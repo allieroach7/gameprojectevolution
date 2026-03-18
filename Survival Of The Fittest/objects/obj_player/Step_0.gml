@@ -93,6 +93,7 @@ if (can_evolve && keyboard_check_pressed(ord("E"))) {
     can_evolve = false;
     dna_points = 0;
     evolution_stage++;
+	audio_play_sound(snd_evolve, 1, false);
 	
 	// Evolution particles
 if (instance_exists(obj_particle_manager)) {

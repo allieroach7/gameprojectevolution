@@ -1,15 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_wall",
+  "%Name":"obj_wall_water",
   "eventList":[],
   "managed":true,
-  "name":"obj_wall",
+  "name":"obj_wall_water",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_wall",
+    "path":"objects/obj_wall/obj_wall.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"spr_wall_land",
-    "path":"sprites/spr_wall_land/spr_wall_land.yy",
+    "name":"spr_wall_water",
+    "path":"sprites/spr_wall_water/spr_wall_water.yy",
   },
   "spriteMaskId":null,
   "visible":true,
