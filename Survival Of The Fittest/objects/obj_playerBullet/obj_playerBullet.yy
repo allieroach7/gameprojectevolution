@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_playerBullet",
-    "path":"sprites/spr_playerBullet/spr_playerBullet.yy",
+    "name":"spr_bubble",
+    "path":"sprites/spr_bubble/spr_bubble.yy",
   },
   "spriteMaskId":null,
   "visible":true,

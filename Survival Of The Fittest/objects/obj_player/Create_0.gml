@@ -14,3 +14,10 @@ global.final_kills = 0;
 is_dead = false;
 u_time = shader_get_uniform(shd_underwater, "u_time");
 shader_time = 0;
+
+music_channel = -1;  // Store audio channel
+
+// Start background music
+if (!audio_is_playing(music_channel)) {
+    music_channel = audio_play_sound(snd_gameStart, 1, true);
+}
