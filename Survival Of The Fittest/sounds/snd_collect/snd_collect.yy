@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_pew",
+  "%Name":"snd_collect",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.69714284,
+  "duration":1.2413832,
   "exportDir":"",
-  "name":"snd_pew",
+  "name":"snd_collect",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_pew.wav",
-  "volume":0.8,
+  "soundFile":"snd_collect.wav",
+  "volume":0.69,
 }

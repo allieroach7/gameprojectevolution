@@ -55,6 +55,7 @@
     {"id":{"name":"rm_overview","path":"rooms/rm_overview/rm_overview.yy",},},
     {"id":{"name":"rm_win","path":"rooms/rm_win/rm_win.yy",},},
     {"id":{"name":"shd_underwater","path":"shaders/shd_underwater/shd_underwater.yy",},},
+    {"id":{"name":"snd_collect","path":"sounds/snd_collect/snd_collect.yy",},},
     {"id":{"name":"snd_die","path":"sounds/snd_die/snd_die.yy",},},
     {"id":{"name":"snd_evolve","path":"sounds/snd_evolve/snd_evolve.yy",},},
     {"id":{"name":"snd_explosion","path":"sounds/snd_explosion/snd_explosion.yy",},},
