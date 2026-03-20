@@ -166,7 +166,6 @@ if (keyboard_check_pressed(ord("3"))) {
 }
 
 // Press 4 — Instant win
-// Press 4 — Instant win
 if (keyboard_check_pressed(ord("4"))) {
     global.final_kills = enemies_killed;
     room_goto(rm_win);
@@ -179,7 +178,5 @@ if (keyboard_check_pressed(ord("5"))) {
 
 // Press 6 — Kill all enemies on screen
 if (keyboard_check_pressed(ord("6"))) {
-    with (obj_enemy) {
-        instance_destroy();
-    }
+        instance_destroy(obj_enemy_parent);
 }
