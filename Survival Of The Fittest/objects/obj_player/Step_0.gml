@@ -152,7 +152,7 @@ if (keyboard_check_pressed(ord("3"))) {
     case 1: sprite_index = spr_fish; break;
     case 2: sprite_index = spr_fishLegs; break;
     case 3: sprite_index = spr_salamander; break;
-    case 4: sprite_index = spr_monkeyPlaceholder; break;
+    case 4: sprite_index = spr_monkey; break;
 }
     
     if (evolution_stage == 3 && room == rm_game) {
