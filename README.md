@@ -60,6 +60,40 @@ Cheat Codes (from project):
 - 5: Instant death
 - 6: Kill all enemies currently on screen
 
+Listed below are all outside resources that we used for our game and their licensing information. 
+All artists have been credited regardless of license status.
+
+Art Assets:
+
+Seaweed (Water Level Obstacle) by TheLox95
+https://opengameart.org/content/seaweed
+License: CC0 (Public domain, no restrictions)
+
+Tree and Bush by One to Zero
+https://opengameart.org/content/bush-and-tree-pixel-art
+License: CC0 (Public domain, no restrictions)
+
+
+Music / Sound Effect Assets:
+
+Background Track - It Lies ahead! By Centurion_of_war
+https://opengameart.org/content/it-lies-ahead
+License: CC0 (Public domain, no restrictions)
+
+Enemy Death Sound - FUN-EXPLOSION02.wav by newagesoup (Slightly Modified) https://freesound.org/s/347311/ -- License: Attribution 4.0
+
+Player Death Sound - Game Die by Jofae https://freesound.org/people/Jofae/sounds/364929/
+License: CC0 (Public domain, no restrictions)
+
+Collection Sound - Item Pickup by TreasureSounds -- 
+https://freesound.org/s/332629/
+ -- License: Attribution 4.0
+
+Evolve Sound - LushLife_LevelUp.wav by SimonBay -- 
+https://freesound.org/s/439889/
+ -- License: Attribution 3.0
+
+
 Team Credit in project:
 - Gold Standard Studios - Allie, Jeevith, Summer, Nathan
 
