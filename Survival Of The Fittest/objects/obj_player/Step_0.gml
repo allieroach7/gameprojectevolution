@@ -14,6 +14,8 @@ if (hp <= 0 && !is_dead) {
     alarm[0] = 60;
     visible = false;
     spd = 0;
+	audio_stop_sound(snd_gameStart);
+	audio_play_sound(snd_die,40,false);
 }
 
 if (is_dead) {
@@ -122,6 +124,7 @@ if (instance_exists(obj_particle_manager)) {
     // Win condition — reached human form
     if (evolution_stage >= 5) {
     global.final_kills = enemies_killed;
+	audio_stop_sound(snd_gameStart);
     room_goto(rm_win);
 }
 }
@@ -153,6 +156,7 @@ if (keyboard_check_pressed(ord("3"))) {
     case 2: sprite_index = spr_fishLegs; break;
     case 3: sprite_index = spr_salamander; break;
     case 4: sprite_index = spr_monkey; break;
+	case 5: audio_stop_sound(snd_gameStart);
 }
     
     if (evolution_stage == 3 && room == rm_game) {
@@ -174,6 +178,7 @@ if (keyboard_check_pressed(ord("4"))) {
 // Press 5 — Instant death
 if (keyboard_check_pressed(ord("5"))) {
     room_goto(rm_gameover);
+	audio_stop_sound(snd_gameStart);
 }
 
 // Press 6 — Kill all enemies on screen
